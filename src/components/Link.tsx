@@ -4,7 +4,7 @@ import Link from 'next/link'
 interface LinkProps {
   linkData : {
     linkTitle: string;
-    link: string
+    link: string;
     }
 }
 const CustomLink = ({linkData}:LinkProps) => {
