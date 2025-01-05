@@ -1,8 +1,10 @@
-import Card from "@/components/Card";
+import  Box  from '@mui/material/Box';
+import React from 'react';
+import Card from '@/components/Card';
 export default function Home() {
   return (
-    <div className="w-screen flex justify-center m-5">
-      <Card/>
-    </div>
+   <Box className="container" sx={{backgroundColor: "#141414", display: "flex", justifyContent:"center", alignItems:"center"}}>
+      <Card />
+   </Box>
   );
 }

@@ -1,31 +1,32 @@
-import Link from 'next/link'
+import Box from '@mui/material/Box'
 import React from 'react'
 import Image from 'next/image'
+import Typography from '@mui/material/Typography'
+import CustomLink from './Link'
+
+const links = [{ linkTitle: "GitHub", link: "https://github.com" },
+{ linkTitle: "Frontend Mentor", link: "https://frontendmentor.com" },
+{ linkTitle: "LinkedIn", link: "https://linkedin.com" },
+{ linkTitle: "Twitter", link: "https://twitter.com" },
+{ linkTitle: "Instagram", link: "https://instagram.com" }
+
+]
 const Card = () => {
   return (
-    <div className='md:w-[35%] bg-gray-900'>
-       <div className='flex justify-center'>
-       <Image
-          src="/jil.jpeg"
-          alt="Jil Patel"
-          width={128} height={128}
-          className="rounded-full object-cover mt-5"
-        />
-       </div>
-       <div className='flex flex-col justify-center items-center m-3 gap-1'>
-        <h1 className='mt-2 text-2xl font-bold'>Jil Patel</h1>
-        <h4 className='text-sm font-semibold text-yellow-200'>Gujarat,India</h4>
-       </div>
-       <div className='flex justify-center text-xs'>
-        <p>&quot;Full-Stack Developer and Avid reader&quot;</p>
-       </div>
-       <div className='flex flex-col justify-center items-center m-4 gap-7'>
-        <button className='w-[75%] p-3 hover:bg-yellow-500 border rounded-lg bg-gray-800'><Link href="https://github.com/Jil02877/Jil02877">GitHub</Link></button>
-        <button className='w-[75%] p-3 hover:bg-yellow-500 border rounded-lg bg-gray-800'><Link href="https://www.linkedin.com/in/jil-patel-22a958250/">Linkdin</Link></button>
-        <button className='w-[75%] p-3 hover:bg-yellow-500 border rounded-lg bg-gray-800'><Link href="https://www.instagram.com/jil_280/">Instagram</Link></button>
-        <button className='w-[75%] p-3 hover:bg-yellow-500 border rounded-lg bg-gray-800'><Link href="https://x.com/home">X</Link></button>
-       </div>
-    </div>
+    <Box className="cardBackground" sx={{ padding: "2rem", borderRadius: "0.75rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+      <Image src="/jil.jpeg"
+        alt='Jil'
+        height={88}
+        width={88}
+        style={{ borderRadius: "50%", marginBottom: "1.5rem" }}
+      />
+      <Typography variant='h1' sx={{ fontSize: "2.25rem", marginBottom: "0.5rem" }}>Patel Jil</Typography>
+      <Typography className='neon' variant='h2' sx={{ fontSize: "1.3125rem", fontWeight: "600", marginBottom:"1.5rem" }}>Gujarat, India</Typography>
+      <Typography sx={{marginBottom:"1.5rem"}}>&quot;Front-end developer and avid reader&quot;</Typography>
+      {links.map((link) => {
+        return <CustomLink linkData={link} key={link.link} />
+      })}
+    </ Box>
   )
 }
 
